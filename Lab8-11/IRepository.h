@@ -23,5 +23,6 @@ public:
 
 	virtual void loadFromFile() = 0;
 	virtual void saveToFile() = 0;
+	~RepoFile();
 };
 
