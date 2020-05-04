@@ -12,7 +12,7 @@ public:
 	Produs();
 	Produs(int, string,int,  string, string, int);
 	Produs(const Produs&);
-	Produs(string, char);
+	
 	string getDataExp();
 	void setDataExp(string);
 	

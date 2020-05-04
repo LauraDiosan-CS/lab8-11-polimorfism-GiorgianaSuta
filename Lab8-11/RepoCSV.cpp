@@ -56,7 +56,7 @@ void RepositoryFileCSV::loadFromFile()
 				Animal* a= new Animal(cod, nume, pret, data,varsta, nr );
 				this->elem.push_back(a);
 			}
-			else if (linie.substr(0, 2) == "PS")
+			else if (linie.substr(0, 2) == "AP")
 			{
 				linie = linie.erase(0, 3);
 

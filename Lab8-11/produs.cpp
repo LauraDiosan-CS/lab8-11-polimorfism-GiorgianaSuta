@@ -13,17 +13,7 @@ Produs::Produs(int cod, string nume,int pret,string data, string data_exp, int n
 	Entitate(cod, nume, pret, data, nr){
 	this->data_exp = data_exp;
 }
-Produs::Produs(string str, char delim)
-{
-	vector<string>  tokens = splitLine(str, delim);
-	cod = stoi(tokens[0]);
-	nume = tokens[1];
-	pret = stoi(tokens[2]);
-	data = tokens[3];
-	data_exp = tokens[4];
-	nr_exemplare = stoi(tokens[5]);
 
-}
 Produs::Produs(const Produs& p ):Entitate(p)
 {
 	this->data_exp = p.data_exp;
@@ -53,7 +43,7 @@ bool Produs:: operator == (const Produs& p)
 
 string Produs::toString(string delim)
 {
-	return "AP"+ delim + to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + data_exp + delim + to_string(nr_exemplare);
+	return "AP" + delim + convertIntToString(cod) + delim + nume + delim + convertIntToString(pret) + delim + data + delim + data_exp + delim + convertIntToString(nr_exemplare);
 }
 Entitate* Produs::clone()
 {

@@ -77,7 +77,7 @@ void Test::testRepoCSV() {
 
 void Test::testLive() {
 	RepoFile* repo = new RepositoryFileCSV("fisier-112-1.cs");
-	//repo->loadFromFile();
+	repo->loadFromFile();
 	Entitate* a1 = new Animal(1, "papagal", 100, "01.04.2020", 2, 5);
 	Entitate* a2 = new Produs(1, "mancare_pesti", 30, "11.12.2019", "01.01.2022", 12);
 	Entitate* a3 = new Animal(2, "hamster", 60, "03.05.2020", 1, 3);

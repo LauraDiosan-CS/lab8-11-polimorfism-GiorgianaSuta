@@ -12,7 +12,7 @@ protected:
 public:
 	Entitate();
 	Entitate(int, string, int, string, int);
-	Entitate(string, char);
+	
 	Entitate(const Entitate&);
 	int getCod();
 	string getNume();

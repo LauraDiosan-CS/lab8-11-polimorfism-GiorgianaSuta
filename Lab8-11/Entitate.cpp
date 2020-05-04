@@ -22,15 +22,7 @@ Entitate::Entitate(int cod, string nume, int pret, string data, int nr)
 	this->data = data;
 	this->nr_exemplare = nr;
 }
-Entitate::Entitate(string linie, char delim)
-{
-	vector<string> tokens = splitLine(linie, delim);
-	cod = stoi(tokens[0]);
-	nume = tokens[1];
-	pret = stoi(tokens[2]);
-	data = tokens[3];
-	nr_exemplare = stoi(tokens[4]);
-}
+
 Entitate::Entitate(const Entitate& e)
 {
 	this->cod = e.cod;
@@ -96,7 +88,7 @@ Entitate& Entitate::operator=(const Entitate& e)
 
 string Entitate::toString(string delim)
 {
-	return to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + to_string(nr_exemplare);
+	return convertIntToString(cod) + delim + nume + delim + convertIntToString(pret) + delim + data + delim + convertIntToString(nr_exemplare);
 }
 Entitate* Entitate::clone()
 {

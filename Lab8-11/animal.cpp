@@ -39,21 +39,11 @@ bool Animal::operator== (const Animal& a)
 	return false;
 }
 
-Animal::Animal(string str, char delimiter)
-{
-	vector<string> tokens = splitLine(str, delimiter);
-	cod = stoi(tokens[0]);
-	nume = tokens[1];
-	pret = stoi(tokens[2]);
-	data = tokens[3];
-	varsta = stoi(tokens[4]);
-	nr_exemplare = stoi(tokens[5]);
-}
 
 
 string Animal::toString(string delim)
 {
-	return "AA" + delim + to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + to_string(varsta) + delim +  to_string(nr_exemplare);
+	return "AA" + delim + convertIntToString(this->cod) + delim + nume + delim + convertIntToString(pret) + delim + data + delim + convertIntToString(varsta) + delim +  convertIntToString(nr_exemplare);
 }
 Entitate* Animal::clone()
 {
