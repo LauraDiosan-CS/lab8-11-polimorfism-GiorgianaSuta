@@ -151,6 +151,8 @@
     <ClCompile Include="Entitate.cpp" />
     <ClCompile Include="Lab8-11.cpp" />
     <ClCompile Include="produs.cpp" />
+    <ClCompile Include="Repo.cpp" />
+    <ClCompile Include="RepoCSV.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="utils.cpp" />
@@ -161,8 +163,6 @@
     <ClInclude Include="IRepository.h" />
     <ClInclude Include="produs.h" />
     <ClInclude Include="RepoCSV.h" />
-    <ClInclude Include="repoFile.h" />
-    <ClInclude Include="RepoTXT.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="utils.h" />
@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="animal.csv" />
+    <None Include="fisier-112-1.csv" />
     <None Include="produs.csv" />
     <None Include="testAnimal.csv" />
     <None Include="testProdus.csv" />

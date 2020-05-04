@@ -16,8 +16,9 @@ public:
 	void setVarsta(int);
 	Animal& operator =(const Animal&);
 	bool operator ==(const Animal&);
-	string toString();
-	string toStringDelimiter(char delim);
+	
+	string toString(string delim);
+	Entitate* clone();
 	~Animal();
 	
 };

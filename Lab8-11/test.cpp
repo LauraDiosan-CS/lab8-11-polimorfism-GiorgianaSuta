@@ -1,6 +1,6 @@
 #include "test.h"
 #include <assert.h>
-
+/*
 void Test::testAnimal() {
 	Animal a(1, "caine", 100, "23/02/2020", 1, 20);
 	assert(a.getCod() == 1);
@@ -54,10 +54,10 @@ void Test::testRepoCSV() {
 	assert(repoAnimal->size() == 0);
 	Animal a(1, "caine", 100, "23/02/2020", 1, 20);
 	repoAnimal->add(a);
-	//repoAnimal->saveToFile();
+	repoAnimal->saveToFile();
 	assert(repoAnimal->size() == 1);
 	repoAnimal->remove(a);
-	//repoAnimal->saveToFile();
+	repoAnimal->saveToFile();
 	assert(repoAnimal->size() == 0);
 	assert(repoAnimal->find(a) == -1);
 	
@@ -66,16 +66,39 @@ void Test::testRepoCSV() {
 	assert(repoProdus->size() == 0);
 	Produs p(1, "mancare", 20, "12/02/2020", "12/02/2022", 12);
 	repoProdus->add(p);
-	//repoProdus->saveToFile();
+	repoProdus->saveToFile();
 	assert(repoProdus->size() == 1);
 	repoProdus->remove(p);
-	//repoProdus->saveToFile();
+	repoProdus->saveToFile();
 	assert(repoProdus->size() == 0);
 	assert(repoProdus->find(p) == -1);
 
+	*/
+
+void Test::testLive() {
+	RepoFile* repo = new RepositoryFileCSV("fisier-112-1.cs");
+	//repo->loadFromFile();
+	Entitate* a1 = new Animal(1, "papagal", 100, "01.04.2020", 2, 5);
+	Entitate* a2 = new Produs(1, "mancare_pesti", 30, "11.12.2019", "01.01.2022", 12);
+	Entitate* a3 = new Animal(2, "hamster", 60, "03.05.2020", 1, 3);
+	Entitate* a4 = new Animal(3, "canar", 70, "07.03.2020", 3, 1);
+	assert(repo->size() == 2);
+	assert(*(repo->findElem(0)) == *a2);
+	assert(*(repo->findElem(1)) == *a1);
+	repo->add(a3);
+	assert(repo->size() == 3);
+	assert(*(repo->findElem(0)) == *a3);
+	assert(*(repo->findElem(1)) == *a2);
+	assert(*(repo->findElem(2)) == *a1);
+	repo->add(a4);
+	assert(repo->size() == 3);
+	assert(*(repo->findElem(0)) == *a3);
+	assert(*(repo->findElem(1)) == *a4);
+	assert(*(repo->findElem(2)) == *a1);
+
 
 }
-
+/*
 void Test::testRepoTXT() {
 	RepositoryFile<Animal>* repoAnimal = new RepositoryFileTXT<Animal>("testAnimal.txt");
 	((RepositoryFileTXT<Animal>*)repoAnimal)->loadFromFile();
@@ -101,12 +124,14 @@ void Test::testRepoTXT() {
 	assert(repoProdus->size() == 0);
 	assert(repoProdus->find(p) == -1);
 }
+*/
 void Test::testRun() {
-	testAnimal();
-	testProdus();
-	testUser();
-	testRepoAnimal();
-	testRepoCSV();
-	testRepoTXT();
-	testRepoProdus();
+	//testAnimal();
+	//testProdus();
+	//testUser();
+	//testRepoAnimal();
+	//testRepoCSV();
+	//testRepoTXT();
+	//testRepoProdus();
+	testLive();
 }

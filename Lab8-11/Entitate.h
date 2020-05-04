@@ -27,6 +27,7 @@ public:
 	Entitate& operator =(const Entitate&);
 	bool operator ==(const Entitate&);
 	~Entitate();
-	string toString();
-	string toStringDelimiter(char);
+	
+	virtual Entitate* clone();
+	virtual string toString(string delim);
 };

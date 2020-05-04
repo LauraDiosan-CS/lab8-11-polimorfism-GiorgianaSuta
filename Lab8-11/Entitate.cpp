@@ -92,14 +92,15 @@ Entitate& Entitate::operator=(const Entitate& e)
 
 	return *this;
 }
-string Entitate::toString() {
-	return to_string(cod) + "-" + nume + '-' + to_string(pret) + '-' + data + '-' + to_string(nr_exemplare);
-}
 
-string Entitate::toStringDelimiter(char delim)
+
+string Entitate::toString(string delim)
 {
 	return to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + to_string(nr_exemplare);
 }
-
+Entitate* Entitate::clone()
+{
+	return new Entitate(this->cod, this->nume, this->pret, this->data, this->nr_exemplare);
+}
 Entitate::~Entitate()
 {}

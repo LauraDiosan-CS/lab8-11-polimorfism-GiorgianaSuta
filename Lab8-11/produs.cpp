@@ -49,15 +49,16 @@ bool Produs:: operator == (const Produs& p)
 		return true;
 	return false;
 }
-string Produs::toString() {
-	return to_string(cod) + "-" + nume + '-' + to_string(pret) + '-' + data + '-' + data_exp + '-' + to_string(nr_exemplare);
-}
 
-string Produs::toStringDelimiter(char delim)
+
+string Produs::toString(string delim)
 {
-	return to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + data_exp + delim + to_string(nr_exemplare);
+	return "AP"+ delim + to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + data_exp + delim + to_string(nr_exemplare);
 }
-
+Entitate* Produs::clone()
+{
+	return new Produs(this->cod, this->nume, this->pret, this->data, this->data_exp, this->nr_exemplare);
+}
 Produs::~Produs() {
 	this->data_exp = "";
 }

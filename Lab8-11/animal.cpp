@@ -49,15 +49,16 @@ Animal::Animal(string str, char delimiter)
 	varsta = stoi(tokens[4]);
 	nr_exemplare = stoi(tokens[5]);
 }
-string Animal::toString() {
-	return to_string(cod) + "-" + nume + '-' + to_string(pret) + '-' + data + '-'+to_string(varsta) +'-'+ to_string(nr_exemplare);
-}
 
-string Animal::toStringDelimiter(char delim)
+
+string Animal::toString(string delim)
 {
-	return to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + to_string(varsta) + delim +  to_string(nr_exemplare);
+	return "AA" + delim + to_string(cod) + delim + nume + delim + to_string(pret) + delim + data + delim + to_string(varsta) + delim +  to_string(nr_exemplare);
 }
-
+Entitate* Animal::clone()
+{
+	return new Animal(this->cod, this->nume, this->pret, this->data,this->varsta, this->nr_exemplare);
+}
 Animal::~Animal() {
 	varsta = -1;
 }

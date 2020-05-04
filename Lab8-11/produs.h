@@ -15,10 +15,11 @@ public:
 	Produs(string, char);
 	string getDataExp();
 	void setDataExp(string);
-	string toString();
-	string toStringDelimiter(char);
+	
+	string toString(string);
 	Produs& operator= (const Produs&);
 	bool operator == (const Produs&);
+	Entitate* clone();
 	~Produs();
 	
 };
