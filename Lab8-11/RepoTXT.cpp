@@ -1,28 +1,28 @@
-#include "RepoCSV.h"
+#include "RepoTXT.h"
 #include <fstream>
 #include "animal.h"
 #include "produs.h"
 
-RepoFileCSV::RepoFileCSV() : RepoFile()
+RepoFileTXT::RepoFileTXT() : RepoFile()
 {
 }
 
-RepoFileCSV::RepoFileCSV(string fileName) : RepoFile(fileName)
+RepoFileTXT::RepoFileTXT(string fileName) : RepoFile(fileName)
 {
 }
 
-RepoFileCSV::~RepoFileCSV()
+RepoFileTXT::~RepoFileTXT()
 {
 }
 
-void RepoFileCSV::loadFromFile()
+void RepoFileTXT::loadFromFile()
 {
 	ifstream f(this->fileName);
 	if (f.is_open())
 	{
 		this->emptyRepo();
 		string linie;
-		string delim = ",";
+		string delim = " ";
 		while (getline(f, linie))
 		{
 			if (linie.substr(0, 2) == "AA")
@@ -30,7 +30,7 @@ void RepoFileCSV::loadFromFile()
 				linie = linie.erase(0, 3);
 
 				int pos = linie.find(delim);
-				string cod= linie.substr(0, pos);
+				string cod = linie.substr(0, pos);
 				linie = linie.erase(0, pos + 1);
 
 				pos = linie.find(delim);
@@ -51,9 +51,9 @@ void RepoFileCSV::loadFromFile()
 
 				pos = linie.find(delim);
 				int nr_exemplare = stoi(linie.substr(0, pos));
-			
 
-				Animal* aa = new Animal (cod, nume, pret,data, varsta,nr_exemplare);
+
+				Animal* aa = new Animal(cod, nume, pret, data, varsta, nr_exemplare);
 				this->produse.push_back(aa);
 			}
 			else if (linie.substr(0, 2) == "AP")
@@ -83,7 +83,7 @@ void RepoFileCSV::loadFromFile()
 				pos = linie.find(delim);
 				int nr_exemplare = stoi(linie.substr(0, pos));
 
-				Produs* ap = new Produs(cod, nume, pret,data, data_exp, nr_exemplare);
+				Produs* ap = new Produs(cod, nume, pret, data, data_exp, nr_exemplare);
 				this->produse.push_back(ap);
 			}
 		}
@@ -91,14 +91,14 @@ void RepoFileCSV::loadFromFile()
 	}
 }
 
-void RepoFileCSV::saveToFile()
+void RepoFileTXT::saveToFile()
 {
 	ofstream f(this->fileName);
 	if (f.is_open())
 	{
 		for (Entitate* elem : this->produse)
 		{
-			f << elem->toString(",") << endl;
+			f << elem->toString(" ") << endl;
 		}
 	}
 }

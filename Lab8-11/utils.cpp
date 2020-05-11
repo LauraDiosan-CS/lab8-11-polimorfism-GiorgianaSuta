@@ -1,10 +1,10 @@
 #include "utils.h"
-#include <sstream>
+#include <string>
 #include <iostream>
 using namespace std;
 
 string convertIntToString(int x)
 {
-	string s = to_string(x);
-	return s;
+	string str = to_string(x);
+	return str;
 }

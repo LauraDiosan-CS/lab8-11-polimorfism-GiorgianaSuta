@@ -151,34 +151,49 @@
     <ClCompile Include="Entitate.cpp" />
     <ClCompile Include="Lab8-11.cpp" />
     <ClCompile Include="produs.cpp" />
-    <ClCompile Include="Repo.cpp" />
     <ClCompile Include="RepoCSV.cpp" />
+    <ClCompile Include="RepoFile.cpp" />
+    <ClCompile Include="RepoTXT.cpp" />
+    <ClCompile Include="RepoUser.cpp" />
+    <ClCompile Include="service.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="testEntitate.cpp" />
+    <ClCompile Include="testService.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animal.h" />
     <ClInclude Include="Entitate.h" />
-    <ClInclude Include="IRepository.h" />
+    <ClInclude Include="RepoUser.h" />
+    <ClInclude Include="service.h" />
     <ClInclude Include="produs.h" />
     <ClInclude Include="RepoCSV.h" />
+    <ClInclude Include="RepoFile.h" />
+    <ClInclude Include="RepoTXT.h" />
     <ClInclude Include="test.h" />
+    <ClInclude Include="testEntitate.h" />
+    <ClInclude Include="TestService.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="MyInputStringException.h" />
+    <ClInclude Include="Validare.h" />
+    <ClInclude Include="MyNrException.h" />
+    <ClInclude Include="ValidatorProdus.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="animal.txt" />
-    <Text Include="produs.txt" />
-    <Text Include="testAnimal.txt" />
-    <Text Include="testProdus.txt" />
+    <Text Include="produse.txt" />
+    <Text Include="test.txt" />
+    <Text Include="testProduseIn.txt" />
+    <Text Include="testProduseOut.txt" />
+    <Text Include="testService.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="animal.csv" />
-    <None Include="fisier-112-1.csv" />
-    <None Include="produs.csv" />
-    <None Include="testAnimal.csv" />
-    <None Include="testProdus.csv" />
+    <None Include="produse.csv" />
+    <None Include="testProduseIn.csv" />
+    <None Include="testProduseOut.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,5 +17,6 @@ public:
 	bool operator==(const User& u);
 	string toString();
 	string toStringDelimiter(char delimiter);
+	
 	~User();
 };

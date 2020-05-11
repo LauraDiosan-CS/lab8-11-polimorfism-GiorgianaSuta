@@ -4,30 +4,31 @@ using namespace std;
 
 class Entitate {
 protected:
-	int cod;
+	string cod;
 	string nume;
 	int pret;
 	string data;
 	int nr_exemplare;
 public:
 	Entitate();
-	Entitate(int, string, int, string, int);
-	
+	Entitate(string, string, int, string, int);
 	Entitate(const Entitate&);
-	int getCod();
+	~Entitate();
+
+	virtual Entitate* clone();
+
+	string getCod();
 	string getNume();
 	int getPret();
 	string getData();
 	int getNr();
-	void setCod(int);
+	void setCod(string);
 	void setNume(string);
 	void setPret(int);
 	void setData(string);
 	void setNr(int);
 	Entitate& operator =(const Entitate&);
 	bool operator ==(const Entitate&);
-	~Entitate();
 	
-	virtual Entitate* clone();
 	virtual string toString(string delim);
 };

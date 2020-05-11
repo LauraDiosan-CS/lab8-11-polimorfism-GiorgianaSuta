@@ -1,21 +1,29 @@
 #pragma once
-#include "IRepository.h"
-#include "RepoCSV.h"
+#include "RepoFile.h"
 
-#include "animal.h"
-#include "produs.h"
-#include "user.h"
+class TestRepoFile {
+private:
+    const string fileNameInTXT = "testProduseIn.txt";
+    const string fileNameOutTXT = "testProduseOut.txt";
+    const string fileNameInCSV = "testProduseIn.csv";
+    const string fileNameOutCSV = "testProduseOut.csv";
 
-class Test
-{
+   
+    vector<Entitate*> produseIn;
+
+    void testGetSize();
+    void testGetAll();
+    void testGetProdus();
+    void testAddProdus();
+    void testUpdateProdus();
+    void testDeleteProdus();
+
+    void testLoadFromFileTXT();
+    void testLoadFromFileCSV();
+    void testSavetoFileTXT();
+    void testSaveToFileCSV();
 public:
-	//void testAnimal();
-	//void testProdus();
-	//void testUser();
-	//void testRepoAnimal();
-	//void testRepoProdus();
-	//void testRepoCSV();
-	//void testRepoTXT();
-	void testRun();
-	void testLive();
+    TestRepoFile();
+    ~TestRepoFile();
+    void testAll();
 };

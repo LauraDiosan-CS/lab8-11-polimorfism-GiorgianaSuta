@@ -1,20 +1,15 @@
 #include "Entitate.h"
 #include "utils.h"
-#include <vector>
-#include <string>
-#include <iostream>
-#include <sstream>
+
 using namespace std;
 
 Entitate::Entitate() {
-	this->cod = 0;
-	this->nume = "";
+	
 	this->pret = 0;
-	this->data = "";
 	this->nr_exemplare = 0;
 }
 
-Entitate::Entitate(int cod, string nume, int pret, string data, int nr)
+Entitate::Entitate(string cod, string nume, int pret, string data, int nr)
 {
 	this->cod = cod;
 	this->nume = nume;
@@ -31,7 +26,10 @@ Entitate::Entitate(const Entitate& e)
 	this->data = e.data;
 	this->nr_exemplare = e.nr_exemplare;
 }
-int Entitate::getCod() {
+Entitate* Entitate::clone() {
+	return new Entitate(this->cod, this->nume, this->pret, this->data, this->nr_exemplare);
+}
+string Entitate::getCod() {
 	return this->cod;
 
 }
@@ -48,7 +46,7 @@ string Entitate::getData() {
 int Entitate::getNr() {
 	return this->nr_exemplare;
 }
-void Entitate::setCod(int c)
+void Entitate::setCod(string c)
 {
 	this->cod = c;
 }
@@ -76,23 +74,17 @@ bool Entitate::operator==(const Entitate& e)
 }
 Entitate& Entitate::operator=(const Entitate& e)
 {
-	this->setCod(e.cod);
-	this->setNume(e.nume);
-	this->setPret(e.pret);
-	this->setData(e.data);
-	this->setNr(e.nr_exemplare);
-
+	this->cod = e.cod;
+	this->nume= e.nume;
+	this->pret = e.pret;
+	this->data = e.data;
+	this->nr_exemplare = e.nr_exemplare;
 	return *this;
 }
+string Entitate::toString(string delim) {
+	return this->cod + delim + this->nume + convertIntToString(pret) + delim + data + convertIntToString(nr_exemplare);
 
+}
 
-string Entitate::toString(string delim)
-{
-	return convertIntToString(cod) + delim + nume + delim + convertIntToString(pret) + delim + data + delim + convertIntToString(nr_exemplare);
-}
-Entitate* Entitate::clone()
-{
-	return new Entitate(this->cod, this->nume, this->pret, this->data, this->nr_exemplare);
-}
 Entitate::~Entitate()
 {}

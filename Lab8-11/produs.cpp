@@ -1,15 +1,14 @@
-#include <iostream>
-#include <string.h>
+
 #include "produs.h"
 #include "utils.h"
-#include <vector>
+
 using namespace std;
 
-Produs::Produs()
+Produs::Produs() : Entitate()
 {
-	this->data_exp = "";
+	
 }
-Produs::Produs(int cod, string nume,int pret,string data, string data_exp, int nr):
+Produs::Produs(string cod, string nume,int pret,string data, string data_exp, int nr):
 	Entitate(cod, nume, pret, data, nr){
 	this->data_exp = data_exp;
 }
@@ -27,10 +26,18 @@ void Produs::setDataExp(string d)
 	this->data_exp = d;
 }
 
+Entitate* Produs::clone() {
+	return new Produs(this->cod, this->nume, this->pret, this->data, this->data_exp, this->nr_exemplare);
+}
 Produs& Produs :: operator = (const Produs& p)
 {
+	this->cod = p.cod;
+	this->nume = p.nume;
+	this->pret = p.pret;
+	this->data = p.data;
 	this->data_exp = p.data_exp;
-	Entitate::operator = (p);
+	this->nr_exemplare = p.nr_exemplare;
+
 	return *this;
 }
 bool Produs:: operator == (const Produs& p)
@@ -43,12 +50,9 @@ bool Produs:: operator == (const Produs& p)
 
 string Produs::toString(string delim)
 {
-	return "AP" + delim + convertIntToString(cod) + delim + nume + delim + convertIntToString(pret) + delim + data + delim + data_exp + delim + convertIntToString(nr_exemplare);
+	return "AP" + delim + this->cod + delim + nume + delim + convertIntToString(pret) + delim + data + delim + data_exp + delim + convertIntToString(nr_exemplare);
 }
-Entitate* Produs::clone()
-{
-	return new Produs(this->cod, this->nume, this->pret, this->data, this->data_exp, this->nr_exemplare);
-}
+
 Produs::~Produs() {
-	this->data_exp = "";
+	
 }

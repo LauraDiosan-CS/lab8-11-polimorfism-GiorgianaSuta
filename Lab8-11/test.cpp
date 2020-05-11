@@ -1,137 +1,156 @@
-#include "test.h"
 #include <assert.h>
-/*
-void Test::testAnimal() {
-	Animal a(1, "caine", 100, "23/02/2020", 1, 20);
-	assert(a.getCod() == 1);
-	assert(a.getNr() == 20);
-	a.setNume("pisica");
-	assert(a.getNume() == "pisica");
-}
+#include "test.h"
+#include "RepoCSV.h"
+#include "RepoTXT.h"
+#include "animal.h"
+#include "produs.h"
 
-void Test::testProdus() {
-	Produs p(1, "lesa", 30, "22/01/2020", "23/01/2030", 100);
-	assert(p.getCod() == 1);
-	p.setNume("mancare");
-	assert(p.getNume() == "mancare");
-}
-void Test::testUser() {
-	User user("Giorgi27", "12345687");
-	assert(user.getUserName() == "Giorgi27");
-	assert(user.getPassword() == "12345687");
-	user.setPassword("1234");
-	assert(user.getPassword() == "1234");
-}
-void Test::testRepoAnimal() {
-	IRepository<Animal> repoAnimal;
-	Animal a(1, "caine", 100, "23/02/2020", 1, 20);
-	repoAnimal.add(a);
-	assert(repoAnimal.size() == 1);
-	Animal a1(1, "pisica", 90, "12/02/2020", 2, 2);
-	repoAnimal.update(a, a1);
-	int i = repoAnimal.find(a);
-	assert(repoAnimal.getAll()[i].getNr() == 2);
-	repoAnimal.remove(a1);
-	assert(repoAnimal.size() == 0);
-}
-void Test::testRepoProdus() {
-	IRepository<Produs> repoProdus;
-	Produs p(1, "mancare", 20, "12/02/2020", "12/02/2022", 12);
-	repoProdus.add(p);
-	assert(repoProdus.size() == 1);
-	Produs p1(1, "jucarie", 20, "12/02/2020", "12/02/2030", 100);
-	repoProdus.update(p, p1);
-	int i = repoProdus.find(p);
-	assert(repoProdus.getAll()[i].getNr() == 100);
-	repoProdus.remove(p1);
-	assert(repoProdus.size() == 0);
 
+
+void TestRepoFile::testGetSize()
+{
 	
+	RepoFile* repoFile = new RepoFileTXT();
+	assert(repoFile->getSize() == 0);
+	repoFile->addProdus(new Produs());
+	assert(repoFile->getSize() == 1);
 }
-void Test::testRepoCSV() {
-	RepositoryFile<Animal>* repoAnimal = new RepositoryFileCSV<Animal>("testAnimal.csv");
-	((RepositoryFileCSV<Animal>*)repoAnimal)->loadFromFile();
-	assert(repoAnimal->size() == 0);
-	Animal a(1, "caine", 100, "23/02/2020", 1, 20);
-	repoAnimal->add(a);
-	repoAnimal->saveToFile();
-	assert(repoAnimal->size() == 1);
-	repoAnimal->remove(a);
-	repoAnimal->saveToFile();
-	assert(repoAnimal->size() == 0);
-	assert(repoAnimal->find(a) == -1);
+
+void TestRepoFile::testGetAll()
+{
 	
-	RepositoryFile<Produs>* repoProdus = new RepositoryFileCSV<Produs>("testProdus.csv");
-	((RepositoryFileCSV<Produs>*) repoProdus)->loadFromFile();
-	assert(repoProdus->size() == 0);
-	Produs p(1, "mancare", 20, "12/02/2020", "12/02/2022", 12);
-	repoProdus->add(p);
-	repoProdus->saveToFile();
-	assert(repoProdus->size() == 1);
-	repoProdus->remove(p);
-	repoProdus->saveToFile();
-	assert(repoProdus->size() == 0);
-	assert(repoProdus->find(p) == -1);
-
-	*/
-
-void Test::testLive() {
-	RepoFile* repo = new RepositoryFileCSV("fisier-112-1.cs");
-	repo->loadFromFile();
-	Entitate* a1 = new Animal(1, "papagal", 100, "01.04.2020", 2, 5);
-	Entitate* a2 = new Produs(1, "mancare_pesti", 30, "11.12.2019", "01.01.2022", 12);
-	Entitate* a3 = new Animal(2, "hamster", 60, "03.05.2020", 1, 3);
-	Entitate* a4 = new Animal(3, "canar", 70, "07.03.2020", 3, 1);
-	assert(repo->size() == 2);
-	assert(*(repo->findElem(0)) == *a2);
-	assert(*(repo->findElem(1)) == *a1);
-	repo->add(a3);
-	assert(repo->size() == 3);
-	assert(*(repo->findElem(0)) == *a3);
-	assert(*(repo->findElem(1)) == *a2);
-	assert(*(repo->findElem(2)) == *a1);
-	repo->add(a4);
-	assert(repo->size() == 3);
-	assert(*(repo->findElem(0)) == *a3);
-	assert(*(repo->findElem(1)) == *a4);
-	assert(*(repo->findElem(2)) == *a1);
-
-
+	RepoFile* repoFile = new RepoFileTXT();
+	Animal* a1 = new Animal("as3","caine", 100, "23/02/2020", 1, 20);
+	Produs* p2 = new Produs("e21","mancare", 50,"21/02/2019","21/02/2021",100);
+	repoFile->addProdus(a1);
+	repoFile->addProdus(p2);
+	vector<Entitate*> produse = repoFile->getAll();
+	assert(*produse[0] == *a1->clone());
+	assert(*produse[1] == *p2->clone());
 }
-/*
-void Test::testRepoTXT() {
-	RepositoryFile<Animal>* repoAnimal = new RepositoryFileTXT<Animal>("testAnimal.txt");
-	((RepositoryFileTXT<Animal>*)repoAnimal)->loadFromFile();
-	assert(repoAnimal->size() == 0);
-	Animal a(1, "caine", 100, "23/02/2020", 1, 20);
-	repoAnimal->add(a);
-	
-	assert(repoAnimal->size() == 1);
-	repoAnimal->remove(a);
-	
-	assert(repoAnimal->size() == 0);
-	assert(repoAnimal->find(a) == -1);
 
-	RepositoryFile<Produs>* repoProdus = new RepositoryFileTXT<Produs>("testProdus.txt");
-	((RepositoryFileTXT<Produs>*) repoProdus)->loadFromFile();
-	assert(repoProdus->size() == 0);
-	Produs p(1, "mancare", 20, "12/02/2020", "12/02/2022", 12);
-	repoProdus->add(p);
-	
-	assert(repoProdus->size() == 1);
-	repoProdus->remove(p);
-	
-	assert(repoProdus->size() == 0);
-	assert(repoProdus->find(p) == -1);
+void TestRepoFile::testGetProdus()
+{
+	RepoFile* repoFile = new RepoFileTXT();
+	Animal* a1 = new Animal("as3", "caine", 100, "23/02/2020", 1, 20);
+	repoFile->addProdus(a1);
+	assert(*repoFile->getProdus(0) == *a1->clone());
+	assert(*repoFile->getProdus(-1) == *(new Produs()));
+	assert(*repoFile->getProdus(1) == *(new Produs()));
 }
-*/
-void Test::testRun() {
-	//testAnimal();
-	//testProdus();
-	//testUser();
-	//testRepoAnimal();
-	//testRepoCSV();
-	//testRepoTXT();
-	//testRepoProdus();
-	testLive();
+
+void TestRepoFile::testAddProdus()
+{
+	RepoFile* repoFile = new RepoFileTXT();
+	Animal* a1 = new Animal("as3", "caine", 100, "23/02/2020", 1, 20);
+	repoFile->addProdus(a1);
+	assert(*repoFile->getProdus(0) == *a1->clone());
+}
+
+void TestRepoFile::testUpdateProdus()
+{
+	RepoFile* repoFile = new RepoFileTXT();
+	Animal* a1 = new Animal("as3", "caine", 100, "23/02/2020", 1, 20);
+	repoFile->addProdus(a1);
+	Animal* a2 = new Animal("as2", "pisica", 100, "23/02/2020", 1, 20);
+	Animal* a3 = new Animal("as6", "cangur", 100, "23/02/2020", 1, 20);
+
+	repoFile->updateProdus(a3, a2);
+	assert(*repoFile->getProdus(0) == *a1);
+	repoFile->updateProdus(a1, a2);
+	assert(*repoFile->getProdus(0) == *a2);
+}
+
+void TestRepoFile::testDeleteProdus()
+{
+	RepoFile* repoFile = new RepoFileTXT();
+	Animal* a1 = new Animal("as3", "caine", 100, "23/02/2020", 1, 20);
+	repoFile->addProdus(a1);
+	Animal* a2 = new Animal("as2", "pisica", 100, "23/02/2020", 1, 20);
+	repoFile->deleteProdus(a2);
+	assert(repoFile->getSize() == 1);
+	assert(*repoFile->getProdus(0) == *a1);
+	repoFile->deleteProdus(a1);
+	assert(repoFile->getSize() == 0);
+}
+
+void TestRepoFile::testLoadFromFileTXT()
+{
+	
+	RepoFile* repoFile = new RepoFileTXT(this->fileNameInTXT);
+	repoFile->loadFromFile();
+	assert(repoFile->getSize() == this->produseIn.size());
+	assert(*repoFile->getProdus(0) == *this->produseIn[0]);
+	assert(*repoFile->getProdus(1) == *this->produseIn[1]);
+}
+
+void TestRepoFile::testLoadFromFileCSV()
+{
+	RepoFile* repoFile = new RepoFileCSV(this->fileNameInCSV);
+	repoFile->loadFromFile();
+	assert(repoFile->getSize() == this->produseIn.size());
+	assert(*repoFile->getProdus(0) == *this->produseIn[0]);
+	assert(*repoFile->getProdus(1) == *this->produseIn[1]);
+}
+
+void TestRepoFile::testSavetoFileTXT()
+{
+	RepoFile* repoFile = new RepoFileTXT(this->fileNameInTXT);
+	repoFile->loadFromFile();
+	repoFile->setFileName(this->fileNameOutTXT);
+	Animal* newa = new Animal("as10", "iepure", 200, "23/02/2020", 1, 20);
+	repoFile->addProdus(newa);
+	repoFile->saveToFile();
+	repoFile->loadFromFile();
+	assert(repoFile->getSize() == this->produseIn.size() + 1);
+	vector<Entitate*> produse = repoFile->getAll();
+	for (int i = 0; i < repoFile->getSize() - 1; i++)
+	{
+		assert(*produse[i] == *this->produseIn[i]);
+	}
+	assert(*produse[produse.size() - 1] == *newa);
+}
+
+void TestRepoFile::testSaveToFileCSV()
+{
+	RepoFile* repoFile = new RepoFileCSV(this->fileNameInCSV);
+	repoFile->loadFromFile();
+	repoFile->setFileName(this->fileNameOutCSV);
+	Animal* newa = new Animal("as10", "iepure", 200, "23/02/2020", 1, 20);
+	repoFile->addProdus(newa);
+	repoFile->saveToFile();
+	repoFile->loadFromFile();
+	assert(repoFile->getSize() == this->produseIn.size() + 1);
+	vector<Entitate*> produse = repoFile->getAll();
+	for (int i = 0; i < repoFile->getSize() - 1; i++)
+	{
+		assert(*produse[i] == *this->produseIn[i]);
+	}
+	assert(*produse[produse.size() - 1] == *newa);
+}
+
+TestRepoFile::TestRepoFile()
+{
+	Animal* a1 = new Animal("as3", "caine", 100, "23/02/2020", 1, 20);
+	Produs* p2 = new Produs("e21", "mancare", 50, "21/02/2019", "21/02/2021", 100);
+	this->produseIn.push_back(a1);
+	this->produseIn.push_back(p2);
+}
+
+TestRepoFile::~TestRepoFile()
+{
+}
+
+void TestRepoFile::testAll()
+{
+	this->testGetSize();
+	this->testGetAll();
+	this->testGetProdus();
+	this->testAddProdus();
+	this->testUpdateProdus();
+	this->testDeleteProdus();
+	this->testLoadFromFileTXT();
+	this->testLoadFromFileCSV();
+	this->testSavetoFileTXT();
+	this->testSaveToFileCSV();
 }

@@ -1,16 +1,11 @@
 #pragma once
-#include "IRepository.h"
-#include <fstream>
-using namespace std;
+#include "RepoFile.h"
 
- class RepositoryFileCSV :
-	public RepoFile
-{
+class RepoFileCSV : public RepoFile {
 public:
-	RepositoryFileCSV();
-	RepositoryFileCSV(string fileName);
+	RepoFileCSV();
+	RepoFileCSV(string fileName);
+	~RepoFileCSV();
 	void loadFromFile();
 	void saveToFile();
-	~RepositoryFileCSV();
 };
-

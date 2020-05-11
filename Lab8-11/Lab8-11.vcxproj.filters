@@ -36,10 +36,28 @@
     <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Repo.cpp">
+    <ClCompile Include="RepoFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RepoCSV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RepoTXT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testEntitate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RepoUser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +68,7 @@
     <ClInclude Include="produs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IRepository.h">
+    <ClInclude Include="RepoTXT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RepoCSV.h">
@@ -68,35 +86,62 @@
     <ClInclude Include="user.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RepoFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testEntitate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoUser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatorProdus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyInputStringException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyNrException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Validare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="animal.txt">
+    <Text Include="testProduseIn.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="produs.txt">
+    <Text Include="testProduseOut.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="testAnimal.txt">
+    <Text Include="produse.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="testProdus.txt">
+    <Text Include="testService.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="test.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="animal.csv">
+    <None Include="testProduseIn.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="produs.csv">
+    <None Include="testProduseOut.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="testAnimal.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="testProdus.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="fisier-112-1.csv">
+    <None Include="produse.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

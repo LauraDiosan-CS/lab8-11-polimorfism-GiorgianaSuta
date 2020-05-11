@@ -5,11 +5,11 @@
 
 using namespace std;
 
-Animal::Animal() {
+Animal::Animal() : Entitate(){
 	this->varsta = 0;
 }
 
-Animal::Animal(int cod, string nume, int pret, string data, int varsta, int nr):Entitate(cod, nume, pret, data, nr){
+Animal::Animal(string cod, string nume, int pret, string data, int varsta, int nr):Entitate(cod, nume, pret, data, nr){
 	this->varsta = varsta;
 }
 Animal::Animal(const Animal& a):Entitate(a)
@@ -21,15 +21,23 @@ int Animal::getVarsta() {
 	return this->varsta;
 }
 
+Entitate* Animal::clone() {
+	return new Animal(this->cod, this->nume, this->pret, this->data, this->varsta, this->nr_exemplare);
+}
 void Animal::setVarsta(int v)
 {
-	varsta = v;
+	this->varsta = v;
 }
 
 Animal& Animal::operator=(const Animal& a)
 {
-	Entitate::operator= (a);
-	this->setVarsta(a.varsta);
+	this->cod = a.cod;
+	this->nume = a.nume;
+	this->pret = a.pret;
+	this->data = a.data;
+	this->varsta = a.varsta;
+	this->nr_exemplare = a.nr_exemplare;
+	
 	return *this;
 }
 bool Animal::operator== (const Animal& a)
@@ -40,16 +48,13 @@ bool Animal::operator== (const Animal& a)
 }
 
 
+string Animal::toString(string delim) {
+	return "AA" + delim + this->cod +delim + this->nume + convertIntToString(pret) + delim + data + convertIntToString(varsta) + delim + convertIntToString(nr_exemplare);
+}
 
-string Animal::toString(string delim)
-{
-	return "AA" + delim + convertIntToString(this->cod) + delim + nume + delim + convertIntToString(pret) + delim + data + delim + convertIntToString(varsta) + delim +  convertIntToString(nr_exemplare);
-}
-Entitate* Animal::clone()
-{
-	return new Animal(this->cod, this->nume, this->pret, this->data,this->varsta, this->nr_exemplare);
-}
+
+
 Animal::~Animal() {
-	varsta = -1;
+	
 }
 
