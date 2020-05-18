@@ -162,10 +162,14 @@
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="ValidatorAnimal.cpp" />
+    <ClCompile Include="ValidatorEntitate.cpp" />
+    <ClCompile Include="ValidatorProdus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animal.h" />
     <ClInclude Include="Entitate.h" />
+    <ClInclude Include="RepoException.h" />
     <ClInclude Include="RepoUser.h" />
     <ClInclude Include="service.h" />
     <ClInclude Include="produs.h" />
@@ -178,14 +182,15 @@
     <ClInclude Include="UI.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="utils.h" />
-    <ClInclude Include="MyInputStringException.h" />
-    <ClInclude Include="Validare.h" />
-    <ClInclude Include="MyNrException.h" />
+    <ClInclude Include="ValidatorAnimal.h" />
+    <ClInclude Include="ValidatorEntitate.h" />
+    <ClInclude Include="ValidatorException.h" />
     <ClInclude Include="ValidatorProdus.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="produse.txt" />
     <Text Include="test.txt" />
+    <Text Include="testLive12.txt" />
     <Text Include="testProduseIn.txt" />
     <Text Include="testProduseOut.txt" />
     <Text Include="testService.txt" />

@@ -82,7 +82,7 @@ Entitate& Entitate::operator=(const Entitate& e)
 	return *this;
 }
 string Entitate::toString(string delim) {
-	return this->cod + delim + this->nume + convertIntToString(pret) + delim + data + convertIntToString(nr_exemplare);
+	return this->cod + delim + this->nume + delim + convertIntToString(pret) + delim + data + convertIntToString(nr_exemplare);
 
 }
 

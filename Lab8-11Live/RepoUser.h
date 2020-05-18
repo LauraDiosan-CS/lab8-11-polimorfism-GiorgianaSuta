@@ -13,7 +13,6 @@ public:
 	
 	~RepoUser();
 	
-
 	vector<User> getAll();
 	int getSize();
 	User getUser(int pos);

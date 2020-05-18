@@ -3,6 +3,7 @@
 #include "animal.h"
 #include "produs.h"
 
+
 RepoFileCSV::RepoFileCSV() : RepoFile()
 {
 }
@@ -15,7 +16,7 @@ RepoFileCSV::~RepoFileCSV()
 {
 }
 
-void RepoFileCSV::loadFromFile()
+void RepoFileCSV::loadFromFile() 
 {
 	ifstream f(this->fileName);
 	if (f.is_open())

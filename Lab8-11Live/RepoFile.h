@@ -22,6 +22,7 @@ public:
 	void addProdus(Entitate* p);
 	void updateProdus(Entitate* pVechi, Entitate* pNou);
 	void deleteProdus(Entitate* p);
+	int findProdus(Entitate* p);
 
 	void emptyRepo();
 

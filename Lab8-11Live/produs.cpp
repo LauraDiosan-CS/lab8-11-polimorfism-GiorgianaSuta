@@ -50,7 +50,7 @@ bool Produs:: operator == (const Produs& p)
 
 string Produs::toString(string delim)
 {
-	return "AP" + delim + this->cod + delim + nume + delim + convertIntToString(pret) + delim + data + delim + data_exp + delim + convertIntToString(nr_exemplare);
+	return "AP" + delim + this->cod + delim + this->nume + delim + convertIntToString(this->pret) + delim + this->data + delim + this->data_exp + delim + convertIntToString(this->nr_exemplare);
 }
 
 Produs::~Produs() {

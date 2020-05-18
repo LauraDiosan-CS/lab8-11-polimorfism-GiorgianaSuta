@@ -1,4 +1,8 @@
 #include "RepoFile.h"
+#include <typeinfo>
+#include "animal.h"
+#include "produs.h"
+
 
 RepoFile::RepoFile()
 {
@@ -28,26 +32,37 @@ int RepoFile::getSize()
 	return this->produse.size();
 }
 
-Entitate* RepoFile::getProdus(int pos)
+Entitate* RepoFile::getProdus(int pos) 
 {
 	if (pos >= 0 && pos < this->getSize())
 	{
 		return this->produse[pos]->clone();
 	}
-	return new Entitate();
+	
 }
 
-void RepoFile::addProdus(Entitate* p)
+void RepoFile::addProdus(Entitate* p) 
 {
 	this->produse.push_back(p->clone());
 	this->saveToFile();
 }
-
-void RepoFile::updateProdus(Entitate* pVechi, Entitate* pNou)
+int RepoFile::findProdus(Entitate* p)
 {
 	for (int i = 0; i < this->produse.size(); i++)
 	{
-		if (*(this->getProdus(i)) == *pVechi)
+		if (this->produse[i]->getCod() == p->getCod())
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+void RepoFile::updateProdus(Entitate* pVechi, Entitate* pNou) 
+{
+	
+	for (int i = 0; i < this->produse.size(); i++)
+	{
+		if (this->getProdus(i)->getCod() == pVechi->getCod())
 		{
 			delete this->produse[i];
 			this->produse[i] = pNou->clone();
@@ -57,15 +72,14 @@ void RepoFile::updateProdus(Entitate* pVechi, Entitate* pNou)
 	}
 }
 
-void RepoFile::deleteProdus(Entitate* p)
+void RepoFile::deleteProdus(Entitate* p) 
 {
 	for (int i = 0; i < this->produse.size(); i++)
 	{
 		
-		if (**(this->produse.begin() + i) == *p)
+		if (this->produse[i]->getCod() == p->getCod())
 		{
 			delete this->produse[i];
-	
 			this->produse.erase(this->produse.begin() + i);
 			this->saveToFile();
 			return;

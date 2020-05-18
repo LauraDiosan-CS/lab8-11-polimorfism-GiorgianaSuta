@@ -60,6 +60,15 @@
     <ClCompile Include="testService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ValidatorEntitate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatorProdus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatorAnimal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animal.h">
@@ -104,16 +113,19 @@
     <ClInclude Include="TestService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ValidatorAnimal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatorEntitate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatorException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="ValidatorProdus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MyInputStringException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MyNrException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Validare.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,6 +143,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="test.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="testLive12.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

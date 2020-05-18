@@ -1,11 +1,6 @@
 #pragma once
-#include "RepoCSV.h"
-#include "RepoTXT.h"
+#include "RepoFile.h"
 #include "RepoUser.h"
-#include "animal.h"
-#include "produs.h"
-
-#include "user.h"
 
 class Service {
 private:
@@ -20,24 +15,26 @@ public:
 	void setRepo(RepoFile* newrep);
 	void setRepoUser(RepoUser newrepoUser);
 
+	Entitate* getElementAtPosition(int pos);
 	vector<Entitate*> getAll();
 	void addProdus(Entitate* p);
 	void updateProdus(Entitate* pVechi, Entitate* pNou);
 	void removeProdus(Entitate* p);
 	int getSizeProdus();
+	vector<Entitate*> cautaProdusbyName(string);
+	vector<Entitate*> cautaProdusbyData(string);
 	//int findProdus(Entitate* p);
 
 	vector<User> getUsers();
 	void addUser(User& u);
 	void updateUser(User& uv, User& un);
-	void removeUser(User& u);
+	int removeUser(User& u);
 	int getSizeUser();
 	int findUser(User& u);
 
 	bool login(string, string);
-	
+	int logout(string, string);
 
-
-	
+	int cumpara(string, int, int& pretTotal);
 	
 };

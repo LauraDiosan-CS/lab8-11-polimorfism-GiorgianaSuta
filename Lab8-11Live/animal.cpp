@@ -49,7 +49,7 @@ bool Animal::operator== (const Animal& a)
 
 
 string Animal::toString(string delim) {
-	return "AA" + delim + this->cod +delim + this->nume + convertIntToString(pret) + delim + data + convertIntToString(varsta) + delim + convertIntToString(nr_exemplare);
+	return "AA" + delim + this->cod +delim + this->nume + delim + convertIntToString(pret) + delim + data + delim + convertIntToString(varsta) + delim + convertIntToString(nr_exemplare);
 }
 
 
